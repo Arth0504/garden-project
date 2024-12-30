@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antiques Navbar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .icon-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-icon .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 12px;
+        }
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+            background-color: white;
+        }
+
+        .hero-text {
+            background-color: #43b883;
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text .btn {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            border: none;
+        }
+
+        .hero-text .btn:hover {
+            background-color: #ddd;
+        }
+
+        .promo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+        }
+
+        .promo-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .promo-card h5 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .offer-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .offer-text {
+            max-width: 50%;
+        }
+
+        .offer-text h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .offer-text .btn {
+            background-color: #43b883;
+            color: white;
+            font-weight: bold;
+            border: none;
+        }
+
+        .offer-text .btn:hover {
+            background-color: #369a6d;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .product {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product h2 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .product .price {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .design-section {
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+
+        .design-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .design-item {
+            flex: 1 1 calc(50% - 20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .design-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .design-item h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        justify-items: center;
+        margin: 0 auto;
+    }
+
+    .product-card {
+        text-align: center;
+        background: white;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    .product-card img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+        border-radius: 8px;
+    }
+
+    .product-card:hover {
+        transform: scale(1.05);
+    }
+
+    .product-card h5 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .product-card p {
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .testimonials {
+        padding: 50px 20px;
+        background-color: #fff;
+    }
+
+    .testimonial-card {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+        transform: scale(1.05);
+    }
+
+    .testimonial-text {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .btn-explore {
+        display: block;
+        margin: 30px auto;
+        padding: 10px 20px;
+        background-color: #43b883;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .btn-explore:hover {
+        background-color: #369a6d;
+    }
+    body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .follow-section {
+            background-color: #eaf6f3;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .follow-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .follow-section p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item h5 {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background-color: #000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer .footer-links div {
+            text-align: left;
+        }
+
+        .footer h5 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .social-icons {
+            margin: 20px 0;
+        }
+
+        .footer .social-icons img {
+            width: 24px;
+            height: 24px;
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+
+        .footer .payment-icons img {
+            width: 36px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+
+        .footer .copyright {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .footer .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer .footer-links div {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .follow-section h2 {
+                font-size: 20px;
+            }
+
+            .follow-section p {
+                font-size: 14px;
+            }
+
+            .feature-item {
+                padding: 15px;
+            }
+
+            .footer .footer-links {
+                gap: 20px;
+            }
+
+            .footer a {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">ANTIQUES</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">All Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Home Decor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Garden Decor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                <div class="icon-wrapper">
+                    <div class="cart-icon">
+                        <span class="badge bg-danger rounded-circle">0</span>
+                    </div>
+                    <img src="https://via.placeholder.com/24" alt="User">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section container">
+        <div class="hero-text">
+            <h1>Crafted with Care for Memorable Moments</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,
+                pulvinar dapibus leo.</p>
+            <a href="#" class="btn">SHOP NOW</a>
+        </div>
+        <div class="hero-image">
+            <img src="hero-image.jpg" alt="Decor" class="img-fluid">
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div class="container my-5">
+        <h1 class="text-center">New Arrivals</h1>
+        <div class="products">
+            <div class="product">
+                <img src="product-01.jpg" alt="Hanging Plant">
+                <h2>Hanging Plant</h2>
+                <p class="price">$16.00</p>
+            </div>
+            <div class="product">
+                <img src="product-02.jpg" alt="Wooden Vases">
+                <h2>Wooden Vases</h2>
+                <p class="price">$30.00</p>
+            </div>
+            <div class="product">
+                <img src="product-03.jpg" alt="Golden Lamps">
+                <h2>Golden Lamps</h2>
+                <p class="price">$15.75</p>
+            </div>
+            <div class="product">
+                <img src="product-04.jpg" alt="Wooden Greenery">
+                <h2>Wooden Greenery</h2>
+                <p class="price">$26.00</p>
+            </div>
+        </div>
+    </div> 
+
+</head>
+
+<body>
+<!-- Most Popular Section -->
+<div class="container my-5">
+    <h2 class="section-title">Most Popular</h2>
+    <p class="text-center text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="product-06.jpg" alt="Product 1">
+            <h5>Modern Fruit Plating</h5>
+            <p>$25.00</p>
+        </div>
+        <div class="product-card">
+            <img src="product-07.jpg" alt="Product 2">
+            <h5>Rattan Lamp</h5>
+            <p>$35.00</p>
+        </div>
+        <div class="product-card">
+            <img src="product-08.jpg" alt="Product 3">
+            <h5>Ceramic Ear Vase</h5>
+            <p>$12.50</p>
+        </div>
+        <div class="product-card">
+            <img src="product-09.jpg" alt="Product 4">
+            <h5>Glass Bottle</h5>
+            <p>$10.00</p>
+        </div>
+        <div class="product-card">
+            <img src="product-10.jpg" alt="Product 5">
+            <h5>Metal Standing Lights</h5>
+            <p>$50.00</p>
+        </div>
+        <div class="product-card">
+            <img src="product-11.jpg" alt="Product 5">
+            <h5>Metal Standing Lights</h5>
+            <p>$50.00</p>
+        </div>
+        <div class="product-card">
+            <img src="product-05.jpg" alt="Product 5">
+            <h5>Metal Standing Lights</h5>
+            <p>$50.00</p>
+        </div>
+        <div class="product-card">
+            <img src="product-12.jpg" alt="Product 5">
+            <h5>Metal Standing Lights</h5>
+            <p>$50.00</p>
+        </div>
+    </div>
+    <a href="#" class="btn-explore">Explore All Products</a>
+</div>
+
+<!-- Testimonials Section -->
+<div class="testimonials">
+    <h2 class="section-title">This is what makes us different</h2>
+    <p class="text-center text-muted">Hear from our customers</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Justo velit etiam nisl imperdiet, consectetur consectetur per urna augue ac. Nunc enim volutpat urna euismod sit."</p>
+                    <p class="testimonial-author">- Mike Sanders</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt, libero in vehicula ullamcorper."</p>
+                    <p class="testimonial-author">- Melissa Miner</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Egestas et at aliquet lectus neque volutpat tempus, augue at. Elementum lorem arcu nulla et nec dolor."</p>
+                    <p class="testimonial-author">- Steven Moore</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- Follow Section -->
+ <div class="follow-section">
+    <h2>Follow @antiques</h2>
+    <p>Leo nulla cras augue eros, diam viverra est lectus volutpat at felis tortor porta.</p>
+    <div class="image-gallery">
+        <img src="instafeed-image (1).jpg" alt="Gallery Image 1">
+        
+    </div>
+    <div class="features">
+        <div class="feature-item">
+            <h5>Free Shipping</h5>
+            <p>Justo vestibulum risus imperdiet ridiculus nec sceler.</p>
+        </div>
+        <div class="feature-item">
+            <h5>30 Days Return</h5>
+            <p>Justo vestibulum risus imperdiet ridiculus nec sceler.</p>
+        </div>
+        <div class="feature-item">
+            <h5>Best Offers</h5>
+            <p>Justo vestibulum risus imperdiet ridiculus nec sceler.</p>
+        </div>
+        <div class="feature-item">
+            <h5>Secure Payment</h5>
+            <p>Justo vestibulum risus imperdiet ridiculus nec sceler.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<div class="footer">
+    <div class="footer-links">
+        <div>
+            <h5>Quick Links</h5>
+            <a href="#">Home</a>
+            <a href="#">Indoor</a>
+            <a href="#">Outdoors</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div>
+            <h5>Explore</h5>
+            <a href="#">Bestsellers</a>
+            <a href="#">On Sale</a>
+            <a href="#">Best of 2022</a>
+            <a href="#">Featured</a>
+            <a href="#">Gift Card</a>
+        </div>
+        <div>
+            <h5>Help</h5>
+            <a href="#">Track Order</a>
+            <a href="#">Delivery & Returns</a>
+            <a href="#">FAQs</a>
+            <a href="#">Community</a>
+        </div>
+    </div>
+    <div class="social-icons">
+        <img src="facebook-icon.png" alt="Facebook">
+        <img src="instagram-icon.png" alt="Instagram">
+        <img src="twitter-icon.png" alt="Twitter">
+    </div>
+    <div class="payment-icons">
+        <img src="visa-icon.png" alt="Visa">
+        <img src="mastercard-icon.png" alt="MasterCard">
+        <img src="paypal-icon.png" alt="PayPal">
+    </div>
+    <div class="copyright">
+        Copyright © 2024 Antiques | Powered by Antiques
+    </div>
+</div>
+</body>
+
+</body>
+
+</html>
